@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Theft Auto VI | Vice City & Leonida Experience</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Outfit & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neonPink: '#ff007f',
+                        neonCyan: '#00f0ff',
+                        neonPurple: '#9d00ff',
+                        darkNavy: '#05050f',
+                        darkPanel: '#0a0b1e'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'neon-pink': '0 0 25px rgba(255, 0, 127, 0.6)',
+                        'neon-cyan': '0 0 25px rgba(0, 240, 255, 0.6)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #05050f;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .text-glow-pink {
+            text-shadow: 0 0 15px rgba(255, 0, 127, 0.8), 0 0 30px rgba(255, 0, 127, 0.4);
+        }
+        .text-glow-cyan {
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.4);
+        }
+        .glass-panel {
+            background: rgba(10, 11, 30, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 240, 255, 0.6);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
+            transform: translateY(-4px);
+        }
+        .vice-gradient {
+            background: linear-gradient(135deg, #ff007f 0%, #7928ca 50%, #00f0ff 100%);
+        }
+        .vice-text-gradient {
+            background: linear-gradient(to right, #ff007f, #ff758c, #00f0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gta-grid-bg {
+            background-image: radial-gradient(rgba(0, 240, 255, 0.15) 1px, transparent 1px), radial-gradient(rgba(255, 0, 127, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+        .vice-sunset-bg {
+            background: linear-gradient(180deg, rgba(5, 5, 15, 0.4) 0%, rgba(15, 5, 30, 0.8) 50%, #05050f 100%), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05050f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff007f;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+    </style>
+</head>
+<body class="bg-darkNavy text-white font-sans selection:bg-neonPink selection:text-white">
+
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl vice-gradient flex items-center justify-center font-display font-black text-xl shadow-neon-pink overflow-hidden">
+                   <img src="https://placehold.co/100x100/ff007f/fff?text=VI" alt="GTA VI Logo" class="w-full h-full object-cover">
+                </div>
+                <span class="font-display font-extrabold text-2xl tracking-wider vice-text-gradient">GTA VI LEONIDA</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 font-semibold text-sm tracking-wide">
+                <a href="#hero" class="hover:text-neonCyan transition-colors">INICIO</a>
+                <a href="#characters" class="hover:text-neonPink transition-colors">PROTAGONISTAS</a>
+                <a href="#facts" class="hover:text-neonCyan transition-colors">LOS 30 SECRETOS</a>
+                <a href="#community-chat" class="hover:text-neonPink transition-colors">CHAT COMUNITARIO</a>
+                <a href="#trailer" class="hover:text-neonCyan transition-colors">TRÁILER</a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="https://paypal.me/JUANESPINAL792" target="_blank" class="hidden sm:inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl font-display font-bold text-xs bg-blue-600/80 hover:bg-blue-600 transition-all duration-300 border border-blue-400/40 text-white">
+                    <i class="fa-brands fa-paypal text-cyan-300"></i>
+                    <span>DONAR</span>
+                </a>
+                <a href="#community-chat" class="px-5 py-2.5 rounded-xl font-display font-bold text-sm bg-gradient-to-r from-neonPink to-purple-600 hover:from-purple-600 hover:to-neonCyan transition-all duration-300 shadow-neon-pink text-white inline-block">
+                    COMENTAR
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FLOATING PAYPAL DONATION BUTTON -->
+    <a href="https://paypal.me/JUANESPINAL792" target="_blank" title="Apoya la comunidad con una donación" class="fixed bottom-6 right-6 z-40 flex items-center space-x-2 bg-[#00457C] hover:bg-[#00305a] text-white px-4 py-3 rounded-full shadow-2xl border border-cyan-400/30 hover:scale-105 transition-all duration-300 group">
+        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-cyan-300 group-hover:rotate-12 transition-transform">
+            <i class="fa-brands fa-paypal"></i>
+        </div>
+        <div class="hidden sm:block text-left pr-1">
+            <span class="block text-[10px] text-gray-300 font-mono uppercase tracking-wider">Apóyanos</span>
+            <span class="block text-xs font-display font-bold text-white">Donar por PayPal</span>
+        </div>
+    </a>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden vice-sunset-bg">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkNavy via-darkNavy/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neonPink/20 via-transparent to-transparent opacity-60"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center py-20">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-panel mb-6 border border-neonCyan/30 text-neonCyan font-semibold text-xs tracking-widest uppercase">
+                <span class="w-2 h-2 rounded-full bg-neonCyan animate-ping"></span>
+                <span>Rockstar Games Presenta • Próximamente</span>
+            </div>
+            <h1 class="font-display font-black text-5xl sm:text-7xl md:text-8xl tracking-tight mb-6 uppercase">
+                BIENVENIDOS A <br><span class="vice-text-gradient text-glow-pink">LEONIDA</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 mb-8 font-light">
+                Adéntrate en las calles neón de Vice City y los implacables pantanos del estado de Leonida en la evolución definitiva del crimen organizado.
+            </p>
+
+            <!-- Countdown Timer Container -->
+            <div class="max-w-xl mx-auto mb-10 glass-panel p-4 rounded-2xl border border-neonPink/30 shadow-neon-pink">
+                <div class="text-xs font-mono uppercase tracking-widest text-neonPink mb-2">Cuenta Regresiva Estimada de Lanzamiento</div>
+                <div class="grid grid-cols-4 gap-2 text-center font-display">
+                    <div class="bg-darkNavy/80 p-3 rounded-xl border border-white/10">
+                        <span id="days" class="block font-black text-2xl text-neonCyan">0</span>
+                        <span class="text-[10px] text-gray-400 uppercase">Días</span>
+                    </div>
+                    <div class="bg-darkNavy/80 p-3 rounded-xl border border-white/10">
+                        <span id="hours" class="block font-black text-2xl text-neonPink">0</span>
+                        <span class="text-[10px] text-gray-400 uppercase">Horas</span>
+                    </div>
+                    <div class="bg-darkNavy/80 p-3 rounded-xl border border-white/10">
+                        <span id="minutes" class="block font-black text-2xl text-neonCyan">0</span>
+                        <span class="text-[10px] text-gray-400 uppercase">Minutos</span>
+                    </div>
+                    <div class="bg-darkNavy/80 p-3 rounded-xl border border-white/10">
+                        <span id="seconds" class="block font-black text-2xl text-neonPink">0</span>
+                        <span class="text-[10px] text-gray-400 uppercase">Segundos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#facts" class="w-full sm:w-auto px-8 py-4 rounded-xl font-display font-bold text-base vice-gradient text-white shadow-neon-pink hover:scale-105 transition-transform duration-300 flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-fire text-lg"></i>
+                    <span>VER LAS 30 COSAS CLAVE</span>
+                </a>
+                <a href="#community-chat" class="w-full sm:w-auto px-8 py-4 rounded-xl font-display font-bold text-base glass-panel border border-white/20 hover:border-neonCyan text-white transition-all duration-300 flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-comments text-neonCyan"></i>
+                    <span>IR AL CHAT</span>
+                </a>
+            </div>
+
+            <!-- Quick Stats bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto">
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <div class="font-display font-extrabold text-3xl text-neonPink">2x+</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">Más grande que Los Santos</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <div class="font-display font-extrabold text-3xl text-neonCyan">6 Estrellas</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">IA Policial Avanzada</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <div class="font-display font-extrabold text-3xl text-purple-400">600K+</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">Animaciones Únicas</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <div class="font-display font-extrabold text-3xl text-pink-400">Bonnie & Clyde</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">Dúo Protagonista</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="characters" class="py-24 relative gta-grid-bg">
+        <div class="absolute inset-0 bg-darkNavy/80 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-display font-black text-3xl sm:text-5xl uppercase mb-4">
+                    PROTAGONISTAS <span class="vice-text-gradient">PRINCIPALES</span>
+                </h2>
+                <p class="text-gray-400">Una historia criminal impulsada por la lealtad, la ambición y la supervivencia en el corazón de Leonida.</p>
+                
+                <!-- Toggle Buttons -->
+                <div class="inline-flex p-1.5 rounded-2xl glass-panel mt-8 border border-white/10">
+                    <button onclick="switchCharacter('lucia')" id="btn-lucia" class="px-8 py-3 rounded-xl font-display font-bold text-sm transition-all duration-300 bg-gradient-to-r from-neonPink to-purple-600 text-white shadow-neon-pink">
+                        LUCIA
+                    </button>
+                    <button onclick="switchCharacter('jason')" id="btn-jason" class="px-8 py-3 rounded-xl font-display font-bold text-sm transition-all duration-300 text-gray-400 hover:text-white">
+                        JASON
+                    </button>
+                </div>
+            </div>
+
+            <!-- Character Profile Card -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-12 max-w-5xl mx-auto border border-white/10 relative overflow-hidden">
+                <div class="absolute -right-20 -top-20 w-80 h-80 bg-neonPink/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-neonCyan/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div id="profile-lucia" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center transition-all duration-500">
+                    <div class="space-y-6">
+                        <div class="inline-block px-3 py-1 rounded-lg bg-neonPink/20 text-neonPink text-xs font-bold uppercase tracking-widest border border-neonPink/30">
+                            Cerebro Criminal / Ex-Presidiaria
+                        </div>
+                        <h3 class="font-display font-black text-4xl sm:text-5xl text-white">LUCIA</h3>
+                        <p class="text-gray-300 leading-relaxed font-light">
+                            La primera protagonista femenina en la historia moderna de GTA. Inteligente, calculadora y con un pasado turbulento en Leonida. Junto a Jason, lidera audaces golpes bancarios impulsados por la desesperación y el deseo de un futuro mejor.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-4">
+                            <div class="glass-card p-4 rounded-xl border border-white/10">
+                                <span class="block text-xs text-gray-400 uppercase">Habilidad Especial</span>
+                                <span class="font-bold text-neonPink">Enfoque Táctico</span>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl border border-white/10">
+                                <span class="block text-xs text-gray-400 uppercase">Motivación</span>
+                                <span class="font-bold text-neonCyan">Supervivencia & Poder</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute -inset-1 rounded-2xl vice-gradient opacity-30 blur group-hover:opacity-75 transition duration-500"></div>
+                        <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-darkPanel">
+                            <img src="Imagenes/Lucia.png" alt="Lucia" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="profile-jason" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center hidden transition-all duration-500">
+                    <div class="space-y-6">
+                        <div class="inline-block px-3 py-1 rounded-lg bg-neonCyan/20 text-neonCyan text-xs font-bold uppercase tracking-widest border border-neonCyan/30">
+                            Especialista en Asaltos y Conducción
+                        </div>
+                        <h3 class="font-display font-black text-4xl sm:text-5xl text-white">JASON</h3>
+                        <p class="text-gray-300 leading-relaxed font-light">
+                            Con una vida curtida en los suburbios rurales y los cayos de Leonida, Jason aporta agilidad táctica y destreza mecánica al dúo. Su lealtad hacia Lucia pondrá a prueba los límites de la ley en cada misión.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-4">
+                            <div class="glass-card p-4 rounded-xl border border-white/10">
+                                <span class="block text-xs text-gray-400 uppercase">Habilidad Especial</span>
+                                <span class="font-bold text-neonCyan">Reflejos de Conducción</span>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl border border-white/10">
+                                <span class="block text-xs text-gray-400 uppercase">Motivación</span>
+                                <span class="font-bold text-neonPink">Lealtad & Escape</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute -inset-1 rounded-2xl vice-gradient opacity-30 blur group-hover:opacity-75 transition duration-500"></div>
+                        <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-darkPanel">
+                            <img src="Imagenes/jason.jpg" alt="Jason" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facts" class="py-24 bg-gradient-to-b from-darkNavy via-[#0a0520] to-[#08091a] relative">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ff007f_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-neonCyan font-mono text-sm tracking-widest uppercase">DOSSIER OFICIAL & FILTRACIONES</span>
+                <h2 class="font-display font-black text-3xl sm:text-5xl uppercase mt-2 mb-4">
+                    LAS 30 COSAS MÁS <span class="vice-text-gradient">INTERESANTES</span>
+                </h2>
+                <p class="text-gray-400">Explora en detalle cada aspecto técnico, mecánico y ambiental que revolucionará la industria de los videojuegos.</p>
+                
+                <!-- Category Filters -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
+                    <button onclick="filterCategory('all')" id="filter-all" class="px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all duration-300 bg-neonPink text-white shadow-neon-pink">Todos</button>
+                    <button onclick="filterCategory('map')" id="filter-map" class="px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all duration-300 glass-panel text-gray-300 hover:text-white">Ambientación</button>
+                    <button onclick="filterCategory('protagonistas')" id="filter-protagonistas" class="px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all duration-300 glass-panel text-gray-300 hover:text-white">Protagonistas</button>
+                    <button onclick="filterCategory('ia')" id="filter-ia" class="px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all duration-300 glass-panel text-gray-300 hover:text-white">IA</button>
+                    <button onclick="filterCategory('vehiculos')" id="filter-vehiculos" class="px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all duration-300 glass-panel text-gray-300 hover:text-white">Vehículos</button>
+                    <button onclick="filterCategory('inmersion')" id="filter-inmersion" class="px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all duration-300 glass-panel text-gray-300 hover:text-white">Inmersión</button>
+                    <button onclick="filterCategory('tecnico')" id="filter-tecnico" class="px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all duration-300 glass-panel text-gray-300 hover:text-white">Detalles Técnicos</button>
+                </div>
+            </div>
+
+            <!-- Facts Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="facts-grid">
+                <!-- Fact 1 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="map">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neonPink/20 text-neonPink border border-neonPink/30">#01 • AMBIENTACIÓN</span>
+                            <i class="fa-solid fa-city text-neonPink"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">El regreso a Vice City</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">La mítica ciudad inspirada en Miami vuelve completamente renovada y adaptada a los tiempos modernos, siendo al menos el doble de grande que Los Santos.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Ambientación Urbana</div>
+                </div>
+
+                <!-- Fact 2 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="map">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neonPink/20 text-neonPink border border-neonPink/30">#02 • AMBIENTACIÓN</span>
+                            <i class="fa-solid fa-map text-neonPink"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">El estado de Leonida</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">No solo jugaremos en la ciudad; el mapa abarca todo el estado ficticio de Leonida, incluyendo cayos, pantanos y zonas rurales.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Geografía Extensa</div>
+                </div>
+
+                <!-- Fact 3 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="map">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neonPink/20 text-neonPink border border-neonPink/30">#03 • AMBIENTACIÓN</span>
+                            <i class="fa-solid fa-layer-group text-neonPink"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Cero zonas vacías</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">A diferencia de GTA V, Rockstar ha apostado por una densidad de contenido mucho mayor en cada rincón del mapa, eliminando espacios inertes.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Densidad de Contenido</div>
+                </div>
+
+                <!-- Fact 4 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="map">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neonPink/20 text-neonPink border border-neonPink/30">#04 • AMBIENTACIÓN</span>
+                            <i class="fa-solid fa-road text-neonPink"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Tráfico a escala real</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Las carreteras y proporciones vehiculares se han ajustado para ser realistas, haciendo que conducir en hora punta sea un desafío orgánico.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Físicas de Tráfico</div>
+                </div>
+
+                <!-- Fact 5 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="map">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neonPink/20 text-neonPink border border-neonPink/30">#05 • AMBIENTACIÓN</span>
+                            <i class="fa-solid fa-cloud-rain text-neonPink"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Clima dinámico hiperrealista</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Simula tormentas tropicales, huracanes y efectos de viento reales que mueven vegetación y crean charcos persistentes con arcoíris.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Meteorología Avanzada</div>
+                </div>
+
+                <!-- Fact 6 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="protagonistas">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neonCyan/20 text-neonCyan border border-neonCyan/30">#06 • PROTAGONISTAS</span>
+                            <i class="fa-solid fa-users text-neonCyan"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Dúo tipo Bonnie y Clyde</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Controlaremos a Jason y Lucia con una fuerte narrativa de lealtad, romance criminal y supervivencia conjunta.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonPink font-mono">Narrativa Dual</div>
+                </div>
+
+                <!-- Fact 7 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="protagonistas">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neonCyan/20 text-neonCyan border border-neonCyan/30">#07 • PROTAGONISTAS</span>
+                            <i class="fa-solid fa-comments text-neonCyan"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Interacciones en pareja</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Mientras exploras, el otro personaje te sugerirá actividades, opinará sobre tus acciones o propondrá golpes espontáneos.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonPink font-mono">Química en Mundo Abierto</div>
+                </div>
+
+                <!-- Fact 8 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="ia">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-purple-400/20 text-purple-400 border border-purple-400/30">#08 • IA</span>
+                            <i class="fa-solid fa-shield-halved text-purple-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Policía con IA avanzada</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Los agentes no disparan de inmediato; ante infracciones leves te pueden parar y advertir antes de pasar a mayores.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonPink font-mono">Inteligencia Policial</div>
+                </div>
+
+                <!-- Fact 9 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="ia">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-purple-400/20 text-purple-400 border border-purple-400/30">#09 • IA</span>
+                            <i class="fa-solid fa-fingerprint text-purple-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Búsqueda memorizada</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Vuelve el nivel de 6 estrellas. La policía memoriza tu ropa, coche, cara y si fuiste grabado por cámaras de seguridad o tráfico.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonPink font-mono">Memoria del Sistema</div>
+                </div>
+
+                <!-- Fact 10 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="inmersion">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">#10 • INMERSIÓN</span>
+                            <i class="fa-solid fa-bullseye text-pink-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Modo "Focus" (Dead Eye)</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Habilidad heredada de RDR2 que ralentiza el tiempo para apuntar con precisión o identificar puntos débiles en vehículos.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Concentración Táctica</div>
+                </div>
+
+                <!-- Fact 11 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="ia">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-purple-400/20 text-purple-400 border border-purple-400/30">#11 • IA</span>
+                            <i class="fa-solid fa-person-walking text-purple-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Simulación de vida individual</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Los NPCs cuentan con rutinas diarias hiperrealistas y una variedad masiva de tipos físicos y estaturas adaptadas.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Vida Autónoma</div>
+                </div>
+
+                <!-- Fact 12 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="ia">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-purple-400/20 text-purple-400 border border-purple-400/30">#12 • IA</span>
+                            <i class="fa-solid fa-face-grimace text-purple-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Reacciones a cada detalle</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Los transeúntes reaccionan si te ven armado, si los persigues demasiado de cerca o si intentas escuchar sus conversaciones.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Reacciones Orgánicas</div>
+                </div>
+
+                <!-- Fact 13 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="inmersion">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">#13 • INMERSIÓN</span>
+                            <i class="fa-solid fa-wind text-pink-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Físicas de cabello y ropa</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Cada NPC tiene físicas individuales en su pelo y prendas que reaccionan de forma realista al viento, la lluvia y los movimientos.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Detalle Gráfico</div>
+                </div>
+
+                <!-- Fact 14 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="inmersion">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">#14 • INMERSIÓN</span>
+                            <i class="fa-solid fa-mobile-screen text-pink-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Redes sociales y "Doomscrolling"</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Usa el móvil del juego para ver feeds locales estilo TikTok o Instagram donde los ciudadanos reaccionan en tiempo real a tus crímenes.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Ecosistema Digital</div>
+                </div>
+
+                <!-- Fact 15 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="vehiculos">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">#15 • VEHÍCULOS</span>
+                            <i class="fa-solid fa-gas-pump text-blue-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Gestión de combustible</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Los vehículos consumen gasolina, obligándote a pasar por gasolineras para repostar o buscar combustible de emergencia.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonPink font-mono">Realismo Mecánico</div>
+                </div>
+
+                <!-- Fact 16 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="vehiculos">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">#16 • VEHÍCULOS</span>
+                            <i class="fa-solid fa-car-burst text-blue-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Daños y estado del motor</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Indicadores de condición del motor. Choques severos tienen cámaras cinemáticas y los coches ya no se voltean mágicamente.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonPink font-mono">Físicas de Colisión</div>
+                </div>
+
+                <!-- Fact 17 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="vehiculos">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">#17 • VEHÍCULOS</span>
+                            <i class="fa-solid fa-suitcase text-blue-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Almacenamiento en maletero</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Adiós al arsenal infinito en el bolsillo; las armas pesadas deberán guardarse físicamente en el maletero del coche.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonPink font-mono">Inventario Físico</div>
+                </div>
+
+                <!-- Fact 18 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="vehiculos">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">#18 • VEHÍCULOS</span>
+                            <i class="fa-solid fa-key text-blue-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Mecánicas de robo avanzadas</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Robar coches requiere romper ventanillas, usar ganzúas, clonar llaves o herramientas según la gama del automóvil.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonPink font-mono">Robo Vehicular</div>
+                </div>
+
+                <!-- Fact 19 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="vehiculos">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">#19 • VEHÍCULOS</span>
+                            <i class="fa-solid fa-address-card text-blue-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Matrículas e ilegalidad</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Si robas un coche de lujo, deberás acudir a talleres ilegales para cambiar placas o desactivar localizadores antirrobo.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonPink font-mono">Evasión Policial</div>
+                </div>
+
+                <!-- Fact 20 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="inmersion">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">#20 • INMERSIÓN</span>
+                            <i class="fa-solid fa-box-archive text-pink-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Inventario estilo RDR2</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Se separa el inventario de objetos de la rueda de armas, apostando por interacciones más pausadas, tácticas y realistas.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Gestión de Objetos</div>
+                </div>
+
+                <!-- Fact 21 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="inmersion">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">#21 • INMERSIÓN</span>
+                            <i class="fa-solid fa-hand text-pink-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Agarre de objetos del entorno</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Podrás recoger casi cualquier objeto que lleven los NPCs (sombreros, basura, armas improvisadas) e interactuar libremente.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Interactividad Total</div>
+                </div>
+
+                <!-- Fact 22 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="inmersion">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">#22 • INMERSIÓN</span>
+                            <i class="fa-solid fa-handcuffs text-pink-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Opciones no letales</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Incluye múltiples opciones para someter a enemigos u objetivos sin necesidad de matarlos, disparando a extremidades específicas.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Tácticas Policiales</div>
+                </div>
+
+                <!-- Fact 23 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="protagonistas">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neonCyan/20 text-neonCyan border border-neonCyan/30">#23 • PROTAGONISTAS</span>
+                            <i class="fa-solid fa-dumbbell text-neonCyan"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Cambios físicos progresivos</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Dependiendo de lo que coman Jason y Lucia y de si van al gimnasio, su peso y masa muscular variarán sutilmente con el tiempo.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonPink font-mono">Evolución Corporal</div>
+                </div>
+
+                <!-- Fact 24 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="map">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neonPink/20 text-neonPink border border-neonPink/30">#24 • AMBIENTACIÓN</span>
+                            <i class="fa-solid fa-water text-neonPink"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Caza, pesca y buceo profundo</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Actividades estrella con un nivel técnico altísimo que permiten explorar arrecifes de coral, naufragios y pantanos peligrosos.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Exploración Submarina</div>
+                </div>
+
+                <!-- Fact 25 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="inmersion">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">#25 • INMERSIÓN</span>
+                            <i class="fa-solid fa-dog text-pink-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Interacción con animales</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Podrás acariciar, regañar o alimentar a perros y otros animales callejeros que encuentres por la ciudad y zonas rurales.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Fauna Interactiva</div>
+                </div>
+
+                <!-- Fact 26 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="map">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neonPink/20 text-neonPink border border-neonPink/30">#26 • AMBIENTACIÓN</span>
+                            <i class="fa-solid fa-building text-neonPink"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Interiores ultradensos</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Muchos edificios cuentan con accesos y modelados interiores complejos (tiendas, centros comerciales, oficinas) simulados.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Arquitectura Interior</div>
+                </div>
+
+                <!-- Fact 27 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="inmersion">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">#27 • INMERSIÓN</span>
+                            <i class="fa-solid fa-hand-holding text-pink-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Gestos orgánicos fluidos</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Mientras conduces, el personaje apoyará de forma natural el brazo en la ventanilla, ajustará el espejo o hará micro-movimientos.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Animación Procedural</div>
+                </div>
+
+                <!-- Fact 28 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="inmersion">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">#28 • INMERSIÓN</span>
+                            <i class="fa-solid fa-tv text-pink-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Anuncios y sátira masiva</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Tendrá la colección de anuncios de radio, televisión y vallas más grande de la historia satirizando la cultura moderna de Florida.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Satírico & Cultural</div>
+                </div>
+
+                <!-- Fact 29 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="inmersion">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">#29 • INMERSIÓN</span>
+                            <i class="fa-solid fa-headphones text-pink-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Música en movimiento</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Podrás comprar auriculares o reproductores en tiendas del juego para escuchar tu emisora preferida mientras caminas a pie.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Audio Portátil</div>
+                </div>
+
+                <!-- Fact 30 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between fact-item" data-category="tecnico">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-400 border border-emerald-400/30">#30 • TÉCNICO</span>
+                            <i class="fa-solid fa-film text-emerald-400"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2 text-white">Más de 600,000 animaciones</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">Base de datos de animaciones sin precedentes para garantizar que los movimientos ciudadanos y protagonistas sean totalmente orgánicos.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs text-neonCyan font-mono">Motor Gráfico Avanzado</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 relative gta-grid-bg">
+        <div class="absolute inset-0 bg-darkNavy/85 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-neonPink font-mono text-sm tracking-widest uppercase">CAPTURAS INMERSIVAS</span>
+                <h2 class="font-display font-black text-3xl sm:text-5xl uppercase mt-2 mb-4">
+                    GALERÍA DE <span class="vice-text-gradient">LEONIDA</span>
+                </h2>
+                <p class="text-gray-400">Un vistazo al motor gráfico en tiempo real que captura la esencia de Vice City.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="relative group rounded-2xl overflow-hidden glass-panel aspect-video border border-white/10">
+                    <img src="Imagenes/neon.jpg" alt="Gallery 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkNavy via-transparent to-transparent opacity-80 flex items-end p-6">
+                        <span class="font-display font-bold text-sm text-white">Neon Skyline - Vice City</span>
+                    </div>
+                </div>
+                <div class="relative group rounded-2xl overflow-hidden glass-panel aspect-video border border-white/10">
+                    <img src="Imagenes/talleres.jpg" alt="Gallery 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkNavy via-transparent to-transparent opacity-80 flex items-end p-6">
+                        <span class="font-display font-bold text-sm text-white">Grassrivers Wetlands & Everglades</span>
+                    </div>
+                </div>
+                <div class="relative group rounded-2xl overflow-hidden glass-panel aspect-video border border-white/10">
+                    <img src="Imagenes/persecusiones.jpg" alt="Gallery 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkNavy via-transparent to-transparent opacity-80 flex items-end p-6">
+                        <span class="font-display font-bold text-sm text-white">Leonida Keys Tropical Highway</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: COMUNIDAD & CHAT EN VIVO SIN REGISTRO -->
+    <section id="community-chat" class="py-24 bg-darkNavy relative border-t border-b border-white/10 overflow-hidden">
+        <div class="absolute -right-40 top-1/2 -translate-y-1/2 w-96 h-96 bg-neonPink/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-neonCyan font-mono text-sm tracking-widest uppercase">COMUNIDAD ACTIVA</span>
+                <h2 class="font-display font-black text-3xl sm:text-5xl uppercase mt-2 mb-4">
+                    FORO & CHAT <span class="vice-text-gradient">DE LEONIDA</span>
+                </h2>
+                <p class="text-gray-400 text-sm">Deja tu opinión, teoría o expectativa sobre GTA VI al instante y sin necesidad de crear una cuenta.</p>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-white/15 shadow-2xl relative">
+                <!-- Chat Feed Box -->
+                <div id="chat-messages" class="h-[500px] overflow-y-auto space-y-4 pr-3 mb-6 scroll-smooth">
+                    <!-- Los mensajes predefinidos y nuevos se inyectan aquí -->
+                </div>
+
+                <!-- Chat Input Form --> 
+                <form id="chat-form" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <input type="text" id="chat-username" placeholder="Tu Apodo / Gamertag" required maxlength="25" class="bg-darkNavy/80 border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-neonPink transition-colors">
+                        <div class="sm:col-span-2 flex gap-2">
+                            <input type="text" id="chat-input" placeholder="Escribe tu mensaje o teoría sobre Vice City..." required maxlength="250" class="flex-1 bg-darkNavy/80 border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-neonCyan transition-colors">
+                            <button type="submit" class="px-6 py-3 rounded-xl font-display font-bold text-sm vice-gradient text-white shadow-neon-pink hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span class="hidden sm:inline">ENVIAR</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="trailer" class="py-24 relative overflow-hidden bg-gradient-to-b from-darkNavy via-[#120826] to-[#08091a]">
+        <div class="absolute inset-0 z-0 bg-gradient-to-r from-neonPink/15 via-darkNavy to-neonCyan/20 opacity-60"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-neonCyan font-mono text-sm tracking-widest uppercase">EXPERIENCIA AUDIOVISUAL</span>
+                <h2 class="font-display font-black text-3xl sm:text-5xl uppercase mt-2 mb-4">
+                    TRÁILER OFICIAL & <span class="vice-text-gradient">ATMÓSFERA</span>
+                </h2>
+                <p class="text-gray-400">Sumérgete en la atmósfera vibrante de Vice City con los adelantos oficiales en resolución 4K.</p>
+            </div>
+
+            <!-- Video Player Simulator Card -->
+            <div class="max-w-5xl mx-auto glass-panel p-4 rounded-3xl border border-white/25 shadow-2xl">
+                <div class="relative aspect-video rounded-2xl overflow-hidden bg-black group">
+                    <!-- Se cambia a un video embebido estable de YouTube para evitar errores 404 en Netlify con archivos locales pesados -->
+                    <iframe class="w-full h-full" src="https://youtu.be/N6f30RVHOVw?si=0N2AE6ZxMTCwLLu6" title="Grand Theft Auto VI Trailer 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="flex items-center justify-between text-white mt-4 px-2">
+                    <div>
+                        <span class="text-xs font-mono uppercase bg-neonPink/80 px-2 py-1 rounded text-white">4K ULTRA HD</span>
+                        <h4 class="font-display font-bold text-lg mt-2">Grand Theft Auto VI - Tráiler 1 (Vice City & Leonida)</h4>
+                    </div>
+                    <span class="text-sm font-mono text-neonCyan">1:30 MIN</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-darkNavy border-t border-white/10 py-16 text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg vice-gradient flex items-center justify-center font-display font-black text-sm text-white">
+                        VI
+                    </div>
+                    <span class="font-display font-extrabold text-xl text-white tracking-wider">GTA VI LEONIDA</span>
+                </div>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                    Sitio web conceptual de exhibición e información interactiva basado en los datos oficiales y filtraciones de Rockstar Games.
+                </p>
+            </div>
+            <div>
+                <h5 class="font-display font-bold text-white mb-4 uppercase tracking-wider text-xs">Navegación</h5>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#hero" class="hover:text-neonPink transition-colors">Inicio</a></li>
+                    <li><a href="#characters" class="hover:text-neonPink transition-colors">Protagonistas</a></li>
+                    <li><a href="#facts" class="hover:text-neonPink transition-colors">30 Secretos de Leonida</a></li>
+                    <li><a href="#community-chat" class="hover:text-neonPink transition-colors">Chat Comunitario</a></li>
+                    <li><a href="#gallery" class="hover:text-neonPink transition-colors">Galería</a></li>
+                    <li><a href="#trailer" class="hover:text-neonPink transition-colors">Tráiler Oficial</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-display font-bold text-white mb-4 uppercase tracking-wider text-xs">Categorías</h5>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#facts" onclick="filterCategory('map')" class="hover:text-neonCyan transition-colors">Ambientación y Vice City</a></li>
+                    <li><a href="#facts" onclick="filterCategory('protagonistas')" class="hover:text-neonCyan transition-colors">Jason y Lucia</a></li>
+                    <li><a href="#facts" onclick="filterCategory('vehiculos')" class="hover:text-neonCyan transition-colors">Vehículos y Física</a></li>
+                    <li><a href="#facts" onclick="filterCategory('ia')" class="hover:text-neonCyan transition-colors">Inteligencia Artificial</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-display font-bold text-white mb-4 uppercase tracking-wider text-xs">Apoya la Web</h5>
+                <p class="text-xs text-gray-500 mb-3">Ayúdanos a mantener el servidor activo con una pequeña donación.</p>
+                <a href="https://paypal.me/JUANESPINAL792" target="_blank" class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-display font-bold transition-all shadow-md">
+                    <i class="fa-brands fa-paypal"></i>
+                    <span>Donar vía PayPal</span>
+                </a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-white/5 text-center text-xs text-gray-600">
+            &copy; 2026 Rockstar Games & Grand Theft Auto VI Fan Experience. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        // Character Toggle Logic
+        function switchCharacter(char) {
+            const btnLucia = document.getElementById('btn-lucia');
+            const btnJason = document.getElementById('btn-jason');
+            const profileLucia = document.getElementById('profile-lucia');
+            const profileJason = document.getElementById('profile-jason');
+
+            if (char === 'lucia') {
+                btnLucia.className = "px-8 py-3 rounded-xl font-display font-bold text-sm transition-all duration-300 bg-gradient-to-r from-neonPink to-purple-600 text-white shadow-neon-pink";
+                btnJason.className = "px-8 py-3 rounded-xl font-display font-bold text-sm transition-all duration-300 text-gray-400 hover:text-white";
+                profileLucia.classList.remove('hidden');
+                profileJason.classList.add('hidden');
+            } else {
+                btnJason.className = "px-8 py-3 rounded-xl font-display font-bold text-sm transition-all duration-300 bg-gradient-to-r from-neonCyan to-blue-600 text-white shadow-neon-cyan";
+                btnLucia.className = "px-8 py-3 rounded-xl font-display font-bold text-sm transition-all duration-300 text-gray-400 hover:text-white";
+                profileJason.classList.remove('hidden');
+                profileLucia.classList.add('hidden');
+            }
+        }
+
+        // Filter Category Logic for the 30 Facts
+        function filterCategory(category) {
+            const items = document.querySelectorAll('.fact-item');
+            const buttons = ['all', 'map', 'protagonistas', 'ia', 'vehiculos', 'inmersion', 'tecnico'];
+
+            buttons.forEach(cat => {
+                const btn = document.getElementById(`filter-${cat}`);
+                if (btn) {
+                    if (cat === category) {
+                        btn.className = "px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all duration-300 bg-neonPink text-white shadow-neon-pink";
+                    } else {
+                        btn.className = "px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all duration-300 glass-panel text-gray-300 hover:text-white";
+                    }
+                }
+            });
+
+            items.forEach(item => {
+                const itemCat = item.getAttribute('data-category');
+                if (category === 'all' || itemCat === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Cuenta Regresiva Real
+        const launchDate = new Date("November 19, 2026 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = launchDate - now;
+
+            if (difference < 0) {
+                document.getElementById('days').innerText = "0";
+                document.getElementById('hours').innerText = "0";
+                document.getElementById('minutes').innerText = "0";
+                document.getElementById('seconds').innerText = "0";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            if (daysEl) daysEl.innerText = days;
+            if (hoursEl) hoursEl.innerText = hours;
+            if (minutesEl) minutesEl.innerText = minutes;
+            if (secondsEl) secondsEl.innerText = seconds;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-darkNavy/90', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-darkNavy/90', 'shadow-lg');
+            }
+        });
+
+        // LIVE COMMUNITY CHAT LOGIC
+        const chatForm = document.getElementById('chat-form');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatUsername = document.getElementById('chat-username');
+        const chatInput = document.getElementById('chat-input');
+
+        let messages = JSON.parse(localStorage.getItem('gta6_chat_messages')) || [
+            { user: 'TommyVercetti92', text: '¡No puedo esperar a recorrer Vice City de noche con la música de los 80!', time: 'Ayer' },
+            { user: 'LeonidaFan', text: 'Totalmente de acuerdo @TommyVercetti92, los atardeceres con neón se ven increíbles en el tráiler.', time: 'Ayer' },
+            { user: 'PixelGamer', text: 'Ya tengo apartado el día de lanzamiento, ¡que llegue noviembre por favor!', time: 'Hace 2 días' },
+            { user: 'GamerX_99', text: '¿Creen que los servidores aguanten el primer día? Va a ser histórico.', time: 'Hace 3 días' },
+            { user: 'CyberCop', text: 'Tranquilo @GamerX_99, este juego es puramente offline y cooperativo, ¡no habrá problemas de conexión de servidor!', time: 'Hace 3 días' },
+            { user: 'SofiaNeon', text: '¡Lucia se ve como la mejor protagonista de toda la saga! Qué ganas de ver su historia.', time: 'Hace 4 días' },
+            { user: 'RetroDrive', text: 'El detalle de la policía con memoria y las matrículas falsas en talleres es una locura absoluta.', time: 'Hace 5 días' },
+            { user: 'Alex_Gamer', text: 'Poco se habla de la física del agua y los cayos de Leonida, Rockstar se superó a sí misma.', time: 'Hace 5 días' },
+            { user: 'NightRunner', text: '¡Necesito ver el mapa completo ya! Dicen que los pantanos de noche van a dar miedo.', time: 'Hace 6 días' },
+            { user: 'VicioTotal', text: 'Ya me compré una OLED nueva solo para este juego. No hay vuelta atrás.', time: 'Hace 6 días' }
+        ];
+
+        function renderMessages() {
+            chatMessages.innerHTML = '';
+            messages.forEach(msg => {
+                const div = document.createElement('div');
+                div.className = "bg-darkNavy/60 p-4 rounded-2xl border border-white/5 space-y-1 animate-fadeIn";
+                div.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="font-display font-bold text-xs text-neonCyan">${escapeHtml(msg.user)}</span>
+                        <span class="text-[10px] text-gray-500 font-mono">${escapeHtml(msg.time)}</span>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light">${escapeHtml(msg.text)}</p>
+                `;
+                chatMessages.appendChild(div);
+            });
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function escapeHtml(text) {
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = chatUsername.value.trim();
+            const text = chatInput.value.trim();
+            if(!user || !text) return;
+
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            messages.push({ user, text, time: timeStr });
+            localStorage.setItem('gta6_chat_messages', JSON.stringify(messages));
+
+            chatInput.value = '';
+            renderMessages();
+        });
+
+        renderMessages();
+    </script>
+</body>
+</html>
